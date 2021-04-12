@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
+
 
 class PostController extends Controller
 {
@@ -18,7 +20,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        return "ini adalah halaman post";
+        $data = Post::all();
+
+        return view('admin.post.table')->with(['data'=>$data]);
     }
 
     /**
@@ -48,9 +52,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        return $slug;
     }
 
     /**
