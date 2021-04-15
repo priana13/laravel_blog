@@ -54,7 +54,10 @@ class PostController extends Controller
      */
     public function show($slug)
     {
-        return $slug;
+        $data = Post::where('slug',$slug)->first();
+        
+        return view('admin.post.show')->with(['data'=>$data]);
+
     }
 
     /**

@@ -5,19 +5,18 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
-
+            <a class="btn btn-primary" href="">Tambah</a>
+                              
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif                    
-                        <form action="" method="post">
-                            @csrf
-                            <input type="text" name="nama">
-                            <button type="submit">Kirim</button>
-                        </form>
+
+                    <h2>{{$data->title}}</h2>
+                    <p>{{$data->desc}}</p>
+
 
                 </div>
             </div>
