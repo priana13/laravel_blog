@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 
+use App\Category;
+
 
 class PostController extends Controller
 {
@@ -20,7 +22,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        $data = Post::all();
+
+        $data = Post::where('category_id',2)->paginate(10);
+
+
 
         return view('admin.post.table')->with(['data'=>$data]);
     }

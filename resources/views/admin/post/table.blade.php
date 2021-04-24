@@ -17,7 +17,8 @@
                 <!-- Menampilkan list Artikel -->
                 @foreach($data as $row)
                     <div>
-                        <h3>{{$row->title}}</h3>                        
+                        <h3>{{$row->title}}</h3> 
+                        <h5>Category: <strong>{{$row->category->category_name}}</strong></h5>                       
                             <div class="nav">
                                 <div >
                                     <a href="">edit </a>|                                
@@ -28,7 +29,7 @@
                         <hr>
                     </div>
                 @endforeach
-
+                {{$data}}
 
 
                 </div>

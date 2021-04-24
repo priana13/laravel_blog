@@ -17,7 +17,8 @@ class CreateTablePosts extends Migration
             $table->bigIncrements('id');
             $table->string('title',70);
             $table->string('slug',70);
-            $table->string('desc',225);
+            $table->text('desc');
+            $table->unsignedBigInteger('category_id');
             $table->timestamps();
         });
     }
@@ -30,5 +31,7 @@ class CreateTablePosts extends Migration
     public function down()
     {
         Schema::dropIfExists('posts');
+
+       
     }
 }
