@@ -34,9 +34,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/table',function(){
+    return view('sample.table');
+});
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/user/{nama}', 'HomeController@user');
 Route::resource('post','PostController');
 Route::get('/{slug}','PostController@show');
+
+
+
 
 

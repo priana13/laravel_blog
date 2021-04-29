@@ -1,11 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.themplate2')
 
 @section('content')
-<div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md">
+
+        <a class="btn btn-primary btn-sm" href="">Tambah</a>
             <div class="card">
-            <a class="btn btn-primary" href="">Tambah</a>
+            
                               
                 <div class="card-body">
                     @if (session('status'))
@@ -14,27 +15,42 @@
                         </div>
                     @endif                    
 
-                <!-- Menampilkan list Artikel -->
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Tanggal</th>
+                        <th>Judul</th>
+                        <th>Category</th>
+                        <th>Action</th>
+                    </tr>                   
+                </thead>
+
+                <tbody>
+                @php $i=1; @endphp
                 @foreach($data as $row)
-                    <div>
-                        <h3>{{$row->title}}</h3> 
-                        <h5>Category: <strong>{{$row->category->category_name}}</strong></h5>                       
-                            <div class="nav">
-                                <div >
-                                    <a href="">edit </a>|                                
-                                    <a href="{{url($row->slug)}}">tampilkan</a> |
-                                    <a href="">hapus</a>
-                                </div>
-                            </div>
-                        <hr>
-                    </div>
+                    <tr>
+                        <td>{{$i++}}</td>
+                        <td>{{$row->created_at}}</td>
+                        <td>{{$row->title}}</td>
+                        <td>{{$row->category->category_name}}</td>
+                        <td>
+                            <a class="btn btn-primary btn-sm" href="">Edit</a>
+                            <a class="btn btn-danger btn-sm" href="">Hapus</a>
+                        </td>
+                    </tr>
                 @endforeach
-                {{$data}}
+                
+                </tbody>
+            </table>
+
+            {{$data}}
 
 
                 </div>
             </div>
         </div>
     </div>
-</div>
+
 @endsection
