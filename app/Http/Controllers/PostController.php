@@ -27,7 +27,7 @@ class PostController extends Controller
 
 
 
-        return view('admin.post.table')->with(['data'=>$data]);
+        return view('admin.post.table')->with(['posts'=>$data]);
     }
 
     /**

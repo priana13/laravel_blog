@@ -206,7 +206,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
 
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{url('post')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Post</p>
                 </a>
@@ -298,14 +298,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Main content -->
     <div class="content">
-      <div class="container-fluid">
-        <div class="row">
+      <!-- <div class="container-fluid">
+        <div class="row"> -->
 
             @yield('content')
 
-        </div>
+        <!-- </div> -->
         <!-- /.row -->
-      </div><!-- /.container-fluid -->
+    <!-- /  </div>.container-fluid -->
     </div>
     <!-- /.content -->
   </div>
