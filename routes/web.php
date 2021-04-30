@@ -11,23 +11,6 @@
 |
 */
 
-Route::get('/seed', function(\App\Post $post){
-    
-    $faker = Faker\Factory::create();
-
-    foreach (range(1,45) as $x) {
-
-       $post->create([
-           'title' => $faker->sentence(5),
-           'slug' =>$faker->sentence(3),
-           'category_id' => 2,
-           'desc' => $faker->sentence(1000)
-       ]);
-    }
-});
-
-
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -39,12 +22,18 @@ Route::get('/table',function(){
 });
 
 
+// Post
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/user/{nama}', 'HomeController@user');
 Route::resource('post','PostController');
 Route::get('/{slug}','PostController@show');
 
 
+// Testing Route
+
+Route::get('/tes/form',function(){
+    return view('sample.form');
+});
 
 
 

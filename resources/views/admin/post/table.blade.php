@@ -6,7 +6,7 @@
           <div class="col-12">
             <div class="row mb-2">
                 <div class="col-sm">
-                <a class="btn btn-default btn-sm" href="">Add New Post</a> 
+                <a class="btn btn-default btn-sm" href="{{route('post.create')}}">Add New Post</a> 
                 </div>
                 
             </div>

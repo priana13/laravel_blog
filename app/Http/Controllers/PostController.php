@@ -23,11 +23,12 @@ class PostController extends Controller
     public function index()
     {
 
-        $data = Post::where('category_id',2)->paginate(10);
-
-
-
-        return view('admin.post.table')->with(['posts'=>$data]);
+        $data = Post::paginate(10);
+        $title = "Post";
+        
+        return view('admin.post.table')->with(
+                ['posts'=>$data,'title' => $title]
+            );
     }
 
     /**
@@ -37,7 +38,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $data['title'] = "Create New Post";
+
+        return view('admin.post.add',$data);
     }
 
     /**
