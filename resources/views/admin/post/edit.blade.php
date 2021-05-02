@@ -15,16 +15,16 @@
                 @csrf
                 <div class="form-group">
                     <!-- <label for="exampleInputBorder">Bottom Border only <code>.form-control-border</code></label> -->
-                    <input type="text" class="form-control form-control-border" name="title" id="title" placeholder="Tulis Judul Post">
+                    <input type="text" class="form-control form-control-border" name="title" id="title" placeholder="Tulis Judul Post" value="{{$post->title}}">
                 </div>
                 <div class="form-group">
                     <!-- <label for="exampleInputBorderWidth2">Bottom Border only 2px Border <code>.form-control-border.border-width-2</code></label> -->
-                    <input type="text" class="form-control form-control-border border-width-0" name="slug" id="slug" placeholder="url" >
+                    <input type="text" class="form-control form-control-border border-width-0" name="slug" id="slug" placeholder="url" value="{{$post->slug}}">
                 </div>
 
 
                 <div class="form-group">
-                <textarea id="summernote" name="desc" style="display:none" >
+                <textarea id="summernote" name="desc" style="display:none" value="{{$post->desc}}">
                     ini adalah konten nya
                 </textarea>
                 </div>
@@ -59,17 +59,17 @@
             <!-- <h4>Custom Select</h4> -->
             <div class="form-group">
                 <label for="exampleSelectBorder">Status</label>
-                <select class="custom-select form-control-border" name="status"  id="exampleSelectBorder">
-                    <option value="draft">Draft</option>
-                    <option value="published">Published</option>
-                    <option value="cenceled">Cenceled</option>
+                <select class="custom-select form-control-border" name="status" value="{{$post->status}}" id="exampleSelectBorder">
+                    <option value="draft" <?php if($post->status == 'draft'){echo 'selected';} ?>>Draft</option>
+                    <option value="published" <?php if($post->status == 'published'){echo 'selected';} ?>>Published</option>
+                    <option value="cenceled" <?php if($post->status == 'cenceled'){echo 'selected';} ?>>Cenceled</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="exampleSelectBorderWidth2">Categories</label>
-                <select class="custom-select form-control-border border-width-2" name="category_id" id="exampleSelectBorderWidth2">
+                <select class="custom-select form-control-border border-width-2" value="{{$post->category_id}}" name="category_id" id="exampleSelectBorderWidth2">
               @foreach($categories as $category)  
-                <option value="{{$category->id}}">{{$category->category_name}}</option>
+                <option value="{{$category->id}}"<?php if($post->category_id == $category->id){echo 'selected';} ?> >{{$category->category_name}}</option>
               @endforeach
                 </select>
             </div>

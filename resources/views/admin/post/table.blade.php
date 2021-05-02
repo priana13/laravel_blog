@@ -58,7 +58,7 @@
                       <td>{{$post->status}}</td>
                       <td>
                         <a class="btn btn-primary btn-xs" href="">Show</a> 
-                        <a class="btn btn-success btn-xs" href="">Edit</a> 
+                        <a class="btn btn-success btn-xs" href="{{route('post.edit',$post->id)}}">Edit</a> 
                         <a class="btn btn-danger btn-xs" href="">Delete</a> 
                       
                       </td>

@@ -24,7 +24,7 @@ class PostController extends Controller
     public function index()
     {
 
-        $data = Post::paginate(10);
+        $data = Post::orderBy('id','desc')->paginate(10);
         $title = "Post";
         
         return view('admin.post.table')->with(
@@ -56,7 +56,7 @@ class PostController extends Controller
     {
         Post::create($request->all());
 
-        return redirect()->back();
+        return redirect('post');
     }
 
     /**
@@ -81,7 +81,12 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['title'] = "Update Post";
+        $data['post'] = Post::find($id);
+        $data['categories'] = Category::all();
+        $data['tags'] = Tag::all();
+
+        return view('admin.post.edit',$data);
     }
 
     /**
