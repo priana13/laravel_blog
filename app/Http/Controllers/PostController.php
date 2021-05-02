@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;
 
 use App\Category;
+use App\Tag;
 
 
 class PostController extends Controller
@@ -39,6 +40,8 @@ class PostController extends Controller
     public function create()
     {
         $data['title'] = "Create New Post";
+        $data['categories'] = Category::all();
+        $data['tags'] = Tag::all();
 
         return view('admin.post.add',$data);
     }
@@ -51,7 +54,9 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Post::create($request->all());
+
+        return redirect()->back();
     }
 
     /**
