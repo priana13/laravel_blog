@@ -54,7 +54,10 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        Post::create($request->all());
+        $post = Post::create($request->all());
+
+
+        $post->tags()->attach($request->tags);
 
         return redirect('post');
     }
@@ -81,11 +84,17 @@ class PostController extends Controller
      */
     public function edit($id)
     {
+        $post = Post::findOrFail($id);
+        
         $data['title'] = "Update Post";
-        $data['post'] = Post::find($id);
+        $data['post'] = $post;
         $data['categories'] = Category::all();
-        $data['tags'] = Tag::all();
+        
+        
+        $data['tags'] = Tag::all(); 
+        $data['tags_terpilih'] =$post->tags;      
 
+     
         return view('admin.post.edit',$data);
     }
 
@@ -98,7 +107,14 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Post::find($id);        
+        
+        $post->update($request->all());
+
+        $post->tags()->sync($request->tags);
+        // $post->tags()->detach($request->tags);
+
+        return redirect('post');
     }
 
     /**

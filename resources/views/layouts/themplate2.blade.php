@@ -362,9 +362,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
   $('#summernote').summernote();
 
   //Initialize Select2 Elements
-  $('.select2').select2()
+  $('.select2').select2() 
 
 </script>
+
+@stack('scripts')
 
 </body>
 </html>

@@ -11,7 +11,7 @@
                 <!-- /.card-header -->
                 <div class="card-body">
                 <!-- <h4>Input</h4> -->
-                <form action="{{route('post.store')}}" method="post">
+                <form action="{{route('updatepost',$post->id)}}" method="post">
                 @csrf
                 <div class="form-group">
                     <!-- <label for="exampleInputBorder">Bottom Border only <code>.form-control-border</code></label> -->
@@ -76,9 +76,9 @@
 
                 
                 <div class="form-group">
-                  <label>Tags</label>
+                  <label>Contoh</label>
                   <div class="select2-purple">
-                    <select class="select2" name="tag_id[]" multiple="multiple" data-placeholder="Select a State" data-dropdown-css-class="select2-purple" style="width: 100%;">
+                    <select id="pilihan" class="select2" name="tags[]" multiple="multiple" data-placeholder="Select a State" data-dropdown-css-class="select2-purple" style="width: 100%;">
                      @foreach($tags as $tag)
                         <option value="{{$tag->id}}">{{$tag->tag_name}}</option>
                      @endforeach
@@ -86,6 +86,8 @@
                   </div>
                 </div>
                 <!-- /.form-group -->
+
+
 
 
             </div>
@@ -105,6 +107,14 @@
 <!-- akhir row -->
 </div>
 
+
+@push('scripts')
+    <script>
+    
+        $('#pilihan').val({{$tags_terpilih->pluck('id')}}).change();
+    
+    </script>
+@endpush
 
 
 @endsection

@@ -78,7 +78,7 @@
                 <div class="form-group">
                   <label>Tags</label>
                   <div class="select2-purple">
-                    <select class="select2" name="tag_id[]" multiple="multiple" data-placeholder="Select a State" data-dropdown-css-class="select2-purple" style="width: 100%;">
+                    <select class="select2" name="tags[]" multiple="multiple" data-placeholder="Select a State" data-dropdown-css-class="select2-purple" style="width: 100%;">
                      @foreach($tags as $tag)
                         <option value="{{$tag->id}}">{{$tag->tag_name}}</option>
                      @endforeach

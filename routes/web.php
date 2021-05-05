@@ -26,6 +26,9 @@ Route::get('/table',function(){
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/user/{nama}', 'HomeController@user');
 Route::resource('post','PostController');
+Route::post('post/{id}/update','PostController@update')->name('updatepost');
+
+
 Route::get('/{slug}','PostController@show');
 
 
