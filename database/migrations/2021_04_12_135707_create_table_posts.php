@@ -19,6 +19,7 @@ class CreateTablePosts extends Migration
             $table->string('slug',70);
             $table->text('desc');
             $table->unsignedBigInteger('category_id');
+            $table->string('type',20)->default('post');
             $table->timestamps();
         });
     }

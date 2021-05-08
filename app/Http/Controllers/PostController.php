@@ -56,6 +56,8 @@ class PostController extends Controller
     {
         $post = Post::create($request->all());
 
+        $post->type = 'post';
+        $post->save();
 
         $post->tags()->attach($request->tags);
 
