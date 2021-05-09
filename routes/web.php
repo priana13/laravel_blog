@@ -26,9 +26,16 @@ Route::get('/table',function(){
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/user/{nama}', 'HomeController@user');
 Route::resource('post','PostController');
-Route::post('post/{id}/update','PostController@update')->name('updatepost');
-// Route::delete('/{id}','PostController@destroy');
 
+Route::namespace('Admin')->group(function () {
+    Route::resource('category','CategoryController');
+});
+
+
+
+
+
+// Front
 Route::get('/{slug}','PostController@show');
 
 // Testing Route
@@ -39,3 +46,4 @@ Route::get('/tes/form',function(){
 
 
 
+ 

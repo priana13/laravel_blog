@@ -11,7 +11,8 @@
                 <!-- /.card-header -->
                 <div class="card-body">
                 <!-- <h4>Input</h4> -->
-                <form action="{{route('updatepost',$post->id)}}" method="post">
+                <form action="{{route('post.update',$post->id)}}" method="post">
+                @method('put')
                 @csrf
                 <div class="form-group">
                     <!-- <label for="exampleInputBorder">Bottom Border only <code>.form-control-border</code></label> -->

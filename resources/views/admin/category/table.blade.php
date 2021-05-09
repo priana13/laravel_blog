@@ -6,7 +6,7 @@
           <div class="col-12">
             <div class="row mb-2">
                 <div class="col-sm">
-                <a class="btn btn-default btn-sm" href="{{route('post.create')}}">Add New Post</a> 
+                <a class="btn btn-default btn-sm" href="{{route('category.create')}}">Add New Category</a> 
                 </div>
                 
             </div>
@@ -34,35 +34,27 @@
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>Judul</th>
                       <th>Category</th>
-                      <th>Status</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
                   @php $i=1; @endphp
-                  @foreach($posts as $post)
+                  @foreach($categories as $category)
                     <tr>
                       <td>{{$i++}}</td>
-                      <td>{{$post->title}} <br>
+                      <td>{{$category->category_name}} <br>
                          <div style="color:gray;">
-                            <a style="color:gray;" href="{{route('post.edit',$post->id)}}">Edit</a> |
+                            <a style="color:gray;" href="{{route('category.edit',$category->id)}}">Edit</a> |
                             <a style="color:gray;" href="">Show</a> |
 
-                            <!-- <a style="color:gray;" href="">Delete</a> | -->
-                            
-                            <a style="color:gray;" href="">Created : {{$post->created_at}}</a>
+                            <a style="color:gray;" href="">Created : {{$category->created_at}}</a>
                          </div>
 
                       </td>
-                      <td>{{$post->category->category_name}}</td>
-                      <td>{{$post->status}}</td>
                       <td>
-                        <!-- <a class="btn btn-primary btn-xs" href="">Show</a> 
-                        <a class="btn btn-success btn-xs" href="{{route('post.edit',$post->id)}}">Edit</a>  -->
                                                 
-                        <form action="{{route('post.destroy',$post->id)}}" method="post">
+                        <form action="{{route('category.destroy',$category->id)}}" method="post">
                           @method('delete') @csrf
                             <button type = "submit" class="btn btn-default btn-xs" href="">Delete</button> 
                         </form>
