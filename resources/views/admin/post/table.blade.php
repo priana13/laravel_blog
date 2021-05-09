@@ -59,7 +59,11 @@
                       <td>
                         <a class="btn btn-primary btn-xs" href="">Show</a> 
                         <a class="btn btn-success btn-xs" href="{{route('post.edit',$post->id)}}">Edit</a> 
-                        <a class="btn btn-danger btn-xs" href="">Delete</a> 
+                        <form action="{{route('post.destroy',$post->id)}}" method="post">
+                          @method('delete') @csrf
+                            <button type = "submit" class="btn btn-danger btn-xs" href="">Delete</button> 
+                        </form>
+                        
                       
                       </td>
                     </tr>

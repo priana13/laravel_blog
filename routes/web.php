@@ -27,10 +27,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/user/{nama}', 'HomeController@user');
 Route::resource('post','PostController');
 Route::post('post/{id}/update','PostController@update')->name('updatepost');
-
+// Route::delete('/{id}','PostController@destroy');
 
 Route::get('/{slug}','PostController@show');
-
 
 // Testing Route
 
